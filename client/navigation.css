@@ -1,0 +1,39 @@
+.navigation-wrapper {
+    background-color: #E8E8E8;
+    font-family: monospace;
+    padding: 0 10px;
+    color: #222;
+    font-size: 18px;
+    border-bottom: 2px solid #A9A9A9;
+}
+.leftItemsList {
+    float: left;
+}
+.rightItemsList {
+    float: right;
+}
+.listItem {
+    padding: 15px;
+    margin: 0 5px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+.listItem:hover {
+    background: #222;
+    color: #E8E8E8;
+}
+.clear {
+    clear: both;
+}
+.logo {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+    padding: 15px;
+    font-size: 20px;
+}
+.active {
+    background: #222;
+    color: #E8E8E8;
+}

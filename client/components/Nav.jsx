@@ -22,7 +22,7 @@ class Nav extends Component {
         function itemTapped(path) {
             browserHistory.push(path)
         }
-        return side.map( ({name, path}) => {
+        return side.map( ({name, path, icon}) => {
             /*const listItemStyle = {
                 padding: "15px 15px",
                 display: "inline-block",
@@ -31,9 +31,10 @@ class Nav extends Component {
             }*/
             const listItemStyle = {}
             // give navItem an active class if its path = url
-            const active = path === this.state.url? 'active' : ''
+            const active = path === this.state.url? 'active' : '';
+            const symbol = icon ? icon : '';
             return (
-                <li className={`listItem ${active}`} style={listItemStyle} onClick={ () => {itemTapped(path)} } key={`${name}${path}`}>{name}</li>
+                <li className={`listItem ${active}`} style={listItemStyle} onClick={ () => {itemTapped(path)} } key={`${name}${path}`}><i className={symbol}  aria-hidden="true"></i> {name}</li>
             )
         })
     }

@@ -14,7 +14,6 @@
 }
 .listItem {
     padding: 15px;
-    margin: 0 5px;
     display: inline-block;
     text-align: center;
     cursor: pointer;
@@ -36,6 +35,8 @@
 .active {
     background: #222;
     color: #E8E8E8;
+    border-left: 2px solid #E8E8E8;
+    border-right: 2px solid #E8E8E8;
 }
 .naviButton-left, .naviButton-right {
     color: #222;
@@ -62,9 +63,6 @@
 /* ======================== SMALL SCREENS ================================= */
 
 @media (max-width: 860px) {
-    .listItem {
-        margin: 0;
-    }
     .naviButton-left, .naviButton-right {
         font-size: 15px;
     }
@@ -94,6 +92,10 @@
         height: 1000px;
         background: rgba(169, 169, 169, 0.1);
         position: absolute;
+    }
+    .active {
+        border: none;
+        border-bottom: 2px solid #E8E8E8;
     }
 }
 

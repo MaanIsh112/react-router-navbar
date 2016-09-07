@@ -7,7 +7,7 @@
     border-bottom: 2px solid #A9A9A9;
 }
 .leftItemsList {
-    float: left;
+    display: inline-block;
 }
 .rightItemsList {
     float: right;
@@ -36,4 +36,76 @@
 .active {
     background: #222;
     color: #E8E8E8;
+}
+.naviButton-left, .naviButton-right {
+    color: #222;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    visibility: hidden;
+    display: none;
+}
+.leftItemsListSmall, .rightItemsListSmall {
+    position: relative;
+    top: -1000px;
+    display: none;
+}
+.leftItemsListSmall li, .rightItemsListSmall li {
+    display: block;
+}
+
+/* ======================== SMALL SCREENS ================================= */
+
+@media (max-width: 860px) {
+    .listItem {
+        margin: 0;
+    }
+    .naviButton-left, .naviButton-right {
+        font-size: 15px;
+    }
+}
+@media (max-width: 800px) {
+    .leftItemsList li, .rightItemsList li {
+        display: none;
+    }
+    .leftItemsList {
+        float: left;
+    }
+    .navigation-wrapper {
+        text-align: center;
+    }
+    .naviButton-left, .naviButton-right {
+        display: inline-block;
+    }
+    .visible {
+        visibility: visible;
+    }
+    .logo {
+        display: inline-block;
+        text-align: center;
+    }
+    .navOpenLayer {
+        width: 100%;
+        height: 1000px;
+        background: rgba(169, 169, 169, 0.1);
+        position: absolute;
+    }
+}
+
+/* ======================== ANIMATIONS ================================= */
+.menuOpen {
+    display: block;
+    animation-name: slideDown;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideDown {
+    from {top: -1000px;}
+    to {top: 0;}
 }

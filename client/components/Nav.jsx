@@ -5,7 +5,8 @@ class Nav extends Component {
     constructor() {
         super();
         this.state = {
-            url: ''
+            url: '',
+            menuOpen: false,
         }
     }
     listenForUrl() {
@@ -16,9 +17,6 @@ class Nav extends Component {
         const unlisten = browserHistory.listen( (ev) => this.setState({url: ev.pathname}));
         // stop browser history from listening
         unlisten();
-    }
-    componentWillUnmount() {
-        
     }
     getNavItems(side) {
         function itemTapped(path) {
@@ -39,26 +37,40 @@ class Nav extends Component {
             )
         })
     }
+    openMenu() {
+        this.setState({menuOpen: !this.state.menuOpen})
+    }
     render() {
-        /*const navStyle = {
-            padding: "5px 10px",
-            backgroundColor: "#E8E8E8",
-            color: "#434343",
-            fontFamily: "monospace",
-            fontSize: 20,
-        }*/
+        // add menu open class for it to show in css
+        const menuOpen = this.state.menuOpen ? 'menuOpen' : '';
+        // add navButton class for the button to be visible in css (default side is right)
+        const navButton = this.props.navButton ? this.props.navButton.side : 'right';
+        const navButtonLeft = navButton === 'left' ? 'visible' : '';
+        const navButtonRight = navButton === 'right' ? 'visible' : '';
+        // did user provide an icon? default bars
+        const navButtonIcon = this.props.navButton ? this.props.navButton.icon : 'fa fa-bars';
+        // when nav is open create a layer over the body to click on to close nav
+        const navOpenLayer = this.state.menuOpen ? 'navOpenLayer' : '';
         return (
             <div className="navigation-wrapper">
+                <Link className="logo" to={this.props.items.logo.path}>{this.props.items.logo.name}</Link>
                 <ul className="leftItemsList">
-                    <Link className="logo" to={this.props.items.logo.path}>{this.props.items.logo.name}</Link>
+                    <button onClick={this.openMenu.bind(this)} className={`naviButton-left ${navButtonLeft}`}><i className={navButtonIcon} aria-hidden="true"></i></button>
                     {this.getNavItems(this.props.items.left)}
                 </ul>
                 <ul className="rightItemsList">
                     {this.getNavItems(this.props.items.right)}
+                    <button onClick={this.openMenu.bind(this)} className={`naviButton-right ${navButtonRight}`}><i className={navButtonIcon} aria-hidden="true"></i></button>
                 </ul>
-                <div className="clear"></div>
+                <ul className={`leftItemsListSmall ${menuOpen}`}>
+                    {this.getNavItems(this.props.items.left)}
+                </ul>
+                <ul className={`rightItemsListSmall ${menuOpen}`}>
+                    {this.getNavItems(this.props.items.right)}
+                </ul>
+                <div className={`clear ${navOpenLayer}`} onClick={()=> this.setState({menuOpen: false})}></div>
             </div>
-        )
+        );
     }
 }
 

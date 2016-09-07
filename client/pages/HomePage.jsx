@@ -9,13 +9,13 @@ class HomePage extends Component {
         return (
             <div>
                 <Nav 
-                    items={ {
+                    items = { {
                         left: [{name: 'Home', path: '/'}, {name: 'About', path: '/about'}, {name: 'Dashboard', path: '/dashboard'}],
-                        right: [{name: 'Settings', path: '/settings'}, {name: 'Log Out', path: '/logout'}],
-                        //middle: []
+                        right: [{name: 'Settings', path: '/settings'}, {name: 'Profile', path: '/profile'}, {name: 'Log Out', path: '/logout'}],
                         logo: {name: 'LippyNavBar', path:'/'}
                         }
                     }
+                    navButton = { {side: 'left', icon: 'fa fa-cogs'} }
                 />
                 <h1>Home Page</h1>
             </div>

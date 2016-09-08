@@ -58,6 +58,10 @@
 }
 .leftItemsListSmall li, .rightItemsListSmall li {
     display: block;
+    border-bottom: 1px solid #222;
+}
+.rightItemsListSmall li:last-child {
+    border: none;
 }
 
 /* ======================== SMALL SCREENS ================================= */
@@ -66,8 +70,14 @@
     .naviButton-left, .naviButton-right {
         font-size: 15px;
     }
+    .hideSmall {
+        display: none;
+    }
 }
 @media (max-width: 800px) {
+    .hideSmall {
+        display: inline;
+    }
     .leftItemsList li, .rightItemsList li {
         display: none;
     }

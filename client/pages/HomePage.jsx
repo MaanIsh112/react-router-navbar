@@ -10,8 +10,8 @@ class HomePage extends Component {
             <div>
                 <Nav 
                     items = { {
-                        left: [{name: 'Home', path: '/', icon: 'fa fa-home'}, {name: 'About', path: '/about', icon: ' fa fa-user'}, {name: 'Dashboard', path: '/dashboard'}],
-                        right: [{name: 'Settings', path: '/settings'}, {name: 'Profile', path: '/profile'}, {name: 'Log Out', path: '/logout'}],
+                        left: [{name: 'Home', path: '/', icon: 'fa fa-home'}, {name: 'About', path: '/about', icon: ' fa fa-user'}, {name: 'Dashboard', path: '/dashboard', icon: ' fa fa-envelope'}],
+                        right: [{name: 'Profile', path: '/profile', icon: 'fa fa-home'}, {name: 'Log Out', path: '/logout', icon: 'fa fa-power-off'}],
                         logo: {name: 'LippyNavBar', path:'/'}
                         }
                     }
